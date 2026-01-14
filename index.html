@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>火柴人</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        .container{
+            height: 300px;
+            width: 300px;
+            margin: 50px;
+        }
+        .person{
+            position:absolute;
+            left:150px;
+            top: 160px;
+            animation: 5s move infinite ease-in;
+        }
+        .head{
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border: 5px solid #fff;
+            border-radius: 50%;
+            top: -25px;
+            left: -5px;
+            animation: bob  2s infinite alternate;
+        }
+        .torso{
+            width:0px;
+            height: 60px;
+            border-left: 5px solid #fff;
+            position: absolute; 
+            left:5px;
+            top: 15px;
+        }
+        .part{
+            position: absolute;
+            left:5px;
+            top:75px;
+        }
+        .part.arm{
+            width:40px;
+            height: 45px;
+            border-left: 5px solid #fff;
+            border-bottom: 5px solid #fff;
+            position: absolute;
+            top:15px;
+            transform-origin: 0% 0% 0px;
+            animation :pump  1s infinite ease-in-out;
+        }
+        .part.arm.one{
+            transform: rotate3d(0,0,1,80deg);
+        }
+        .part.arm.two{
+            transform: rotate3d(0,0,1,-80deg);
+            animation-delay:0.5s;
+        }
+        .part.leg{
+            height: 60px;
+            width: 60px;
+            border-right: 5px solid #fff ;
+            border-top:5px solid #fff;
+            transform-origin:0% 0% 0px ;
+            animation: run  1s infinite ease-in-out;
+        }
+        .part.leg.one{
+            transform: rotate3d(0,0,1,100deg);
+        }
+        .part.leg.two{
+            transform: rotate3d(0,0,1,10deg);
+            animation-delay: 0.5s;
+        }
+        /* 头部动画*/
+        @keyframes  bob {
+            0%{
+                transform: rotate3d(0,0,1,5deg);
+            }
+
+            25%{
+                transform: rotate3d(0,0,1,-30deg) skew(15deg,0);  
+            }
+            50%{
+                transform: rotate3d(0,0,1,5deg);  
+            }       
+            75%{
+                transform: rotate3d(0,0,1,-30deg) skew(15deg,0)
+            }               
+            100%{
+                transform: rotate3d(0,0,1,20deg);
+            }
+            
+        }
+        /*胳膊摆动*/
+        @keyframes pump {
+            0%{
+                transform: rotate3d(0,0,1,80deg);
+            }
+            50%{
+                transform: rotate3d(0,0,1,-70deg);
+            }
+           100%{
+                transform: rotate3d(0,0,1,80deg);
+            }
+        }
+        /*腿摆动*/
+        @keyframes run {
+            0%{
+                transform: rotate3d(0,0,1,10deg);
+            }
+            50%{
+                transform: rotate3d(0,0,1,100deg);
+            }
+           100%{
+                transform: rotate3d(0,0,1,10deg);
+            }
+        }
+        /*让人物动起来*/
+        @keyframes move {
+            0%{
+                transform: translate(-200px,0px);
+            }
+            100%{
+                transform: translate(1800px,0px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 这是火柴人结构-->
+     <div class = "container">
+        <div class="person">
+            <div class="head"></div>
+            <div class="part arm one"></div>
+            <div class="part arm two"></div>
+            <div class="torso"></div>
+            <div class="part leg one"> </div>
+            <div class="part leg two"></div>
+        </div>
+     </div>
+    
+</body>
+</html>
